@@ -6,6 +6,15 @@ let
   # hammerspoon = callPackage /b/src/apps/hammerspoon.nix { };
   
 in {
+  services = {
+    nix-daemon.enable = false;
+    activate-system.enable = true;
+  };
+  
+  programs = {
+    zsh.enable = true;
+  };
+  
   users.users.aqua0210 = {
     home = "/Users/aqua0210";
     description = "Eason Huang";
@@ -63,9 +72,6 @@ in {
 
   environment.darwinConfig = "/Users/aqua0210/src/nix/config/darwin.nix";
 
-  services.nix-daemon.enable = false;
-  nix.useDaemon = false;
-  programs.zsh.enable = true;
   system.stateVersion = 4;
   nix.maxJobs = 8;
   nix.buildCores = 4;
