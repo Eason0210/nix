@@ -48,8 +48,13 @@ in {
     tree
     zsh
   ];
+  
   environment.shells = [ pkgs.zsh ];
 
+  environment.variables = {
+    EDITOR = "vim";
+  };
+  
   programs.nix-index.enable = true;
 
   # system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
