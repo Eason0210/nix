@@ -57,6 +57,7 @@ in {
         url = https://github.com/nix-community/emacs-overlay/archive/e9e6de910fe1a9c485b7a9c3ae321030bfb8cc36.tar.gz;
         sha256 = "1arqmdgkaak6m8gzcf71yqr4smk8abziy84rpb2dkq82023y5d44";
       }))
+      (import ../overlays/00-nix-scripts.nix)
     ];     
   };
 
