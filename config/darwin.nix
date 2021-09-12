@@ -21,6 +21,15 @@ in {
     shell = pkgs.zsh;
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowBroken = false;
+      allowInsecure = false;
+      allowUnsupportedSystem = false;
+    };
+  };
+  
   environment.systemPackages = with pkgs; [
     discount
     fd
