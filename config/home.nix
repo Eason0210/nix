@@ -14,10 +14,10 @@ in {
     xdg.cacheHome = "/Users/aqua0210/${relativeXDGCachePath}";
 
     # Let Home Manager install and manage itself.
-    programs.home-manager.enable = true;
+    # programs.home-manager.enable = true;
     programs.bat.enable = true;
     programs.broot.enable = true;
-    # programs.gpg.enable = true;
+    programs.gpg.enable = true;
 
     # home.file.".gnupg/gpg-agent.conf".text = ''
     # '' + (if pkgs.stdenv.isDarwin then ''

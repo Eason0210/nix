@@ -6,6 +6,27 @@ let
   # hammerspoon = callPackage /b/src/apps/hammerspoon.nix { };
   
 in {
+  imports = [ <home-manager/nix-darwin> ];
+
+  nix = {
+    # Auto upgrade nix package and the daemon service.
+    # better not XD
+    #  services.nix-daemon.enable = true;
+    package = pkgs.nix;
+
+    # https://github.com/LnL7/nix-darwin/issues/145
+    # https://github.com/LnL7/nix-darwin/issues/105#issuecomment-567742942
+    # fixed according to https://github.com/LnL7/nix-darwin/blob/b3e96fdf6623dffa666f8de8f442cc1d89c93f60/CHANGELOG
+    nixPath = pkgs.lib.mkForce [
+      {
+        darwin-config = builtins.concatStringsSep ":" [
+          "$HOME/src/nix/config/darwin.nix"
+          "$HOME/.nix-defexpr/channels"
+        ];
+      }
+    ];
+  };
+
   services = {
     nix-daemon.enable = false;
     activate-system.enable = true;
@@ -38,34 +59,43 @@ in {
       }))
     ];     
   };
-  
-  environment.systemPackages = with pkgs; [
-    discount
-    emacsGit
-    fd
-    fontconfig # to make doom doctor work
-    git
-    ctags
-    # hammerspoon
-    htop
-    jq
-    nixfmt
-    ripgrep
-    # ruby_2_6
-    ruby
-    shadowenv
-    shellcheck
-    tree
-    zsh
-  ];
-  
-  environment.shells = [ pkgs.zsh ];
 
-  environment.variables = {
-    EDITOR = "vim";
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    users.aqua0210 = {
+      imports = [ ./home.nix ];
+    };
   };
   
-  programs.nix-index.enable = true;
+  
+  # environment.systemPackages = with pkgs; [
+  #   discount
+  #   emacsGit
+  #   fd
+  #   fontconfig # to make doom doctor work
+  #   git
+  #   ctags
+  #   # hammerspoon
+  #   htop
+  #   jq
+  #   nixfmt
+  #   ripgrep
+  #   # ruby_2_6
+  #   ruby
+  #   shadowenv
+  #   shellcheck
+  #   tree
+  #   zsh
+  # ];
+  
+  # environment.shells = [ pkgs.zsh ];
+
+  # environment.variables = {
+  #   EDITOR = "vim";
+  # };
+  
+  # programs.nix-index.enable = true;
 
   # system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   # system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
