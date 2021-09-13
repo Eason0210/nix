@@ -62,7 +62,7 @@ in {
   };
 
   home-manager = {
-    useUserPackages = true;
+    # useUserPackages = true;
     useGlobalPkgs = true;
     users.aqua0210 = {
       imports = [ ./home.nix ];
