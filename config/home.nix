@@ -1,22 +1,16 @@
 { config, pkgs, lib, ... }:
 
 let
+  home = builtins.getEnv "HOME";
   callPackage = pkgs.callPackage;
 
-  relativeXDGConfigPath = ".config";
-  relativeXDGDataPath = ".local/share";
-  relativeXDGCachePath = ".cache";
 in {
-  xdg.enable = true;
-  xdg.configHome = "/Users/aqua0210/${relativeXDGConfigPath}";
-  xdg.dataHome = "/Users/aqua0210/${relativeXDGDataPath}";
-  xdg.cacheHome = "/Users/aqua0210/${relativeXDGCachePath}";
-
   home = {
     packages = callPackage ./packages.nix { };
 
     sessionVariables = {
       ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
+
     };
 
   };
@@ -73,7 +67,7 @@ in {
       enableCompletion = true;
       enableAutosuggestions = true;
       history = {
-        path = "${relativeXDGDataPath}/zsh/.zsh_history";
+        path = ".local/share/zsh/.zsh_history";
         size = 50000;
         save = 50000;
       };
@@ -145,4 +139,16 @@ in {
       ];
     };
   };
+
+  xdg = {
+    enable = true;
+
+    configFile."aspell/config".text = ''
+      local-data-dir ${pkgs.aspell}/lib/aspell
+      data-dir ${pkgs.aspellDicts.en}/lib/aspell
+      personal ${config.xdg.configHome}/aspell/en_US.personal
+      repl ${config.xdg.configHome}/aspell/en_US.repl
+    '';
+  };
+
 }
