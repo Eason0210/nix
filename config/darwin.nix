@@ -4,7 +4,7 @@ let
   callPackage = pkgs.callPackage;
 
   # hammerspoon = callPackage /b/src/apps/hammerspoon.nix { };
-  
+
 in {
   imports = [ <home-manager/nix-darwin> ];
 
@@ -17,25 +17,21 @@ in {
     # https://github.com/LnL7/nix-darwin/issues/145
     # https://github.com/LnL7/nix-darwin/issues/105#issuecomment-567742942
     # fixed according to https://github.com/LnL7/nix-darwin/blob/b3e96fdf6623dffa666f8de8f442cc1d89c93f60/CHANGELOG
-    nixPath = pkgs.lib.mkForce [
-      {
-        darwin-config = builtins.concatStringsSep ":" [
-          "$HOME/src/nix/config/darwin.nix"
-          "$HOME/.nix-defexpr/channels"
-        ];
-      }
-    ];
+    nixPath = pkgs.lib.mkForce [{
+      darwin-config = builtins.concatStringsSep ":" [
+        "$HOME/src/nix/config/darwin.nix"
+        "$HOME/.nix-defexpr/channels"
+      ];
+    }];
   };
 
   services = {
     nix-daemon.enable = false;
     activate-system.enable = true;
   };
-  
-  programs = {
-    zsh.enable = true;
-  };
-  
+
+  programs = { zsh.enable = true; };
+
   users.users.aqua0210 = {
     home = "/Users/aqua0210";
     description = "Eason Huang";
@@ -43,7 +39,7 @@ in {
   };
 
   services.emacs.package = pkgs.emacsUnstable;
-  
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -51,25 +47,23 @@ in {
       allowInsecure = false;
       allowUnsupportedSystem = false;
     };
-    
+
     overlays = [
       (import (builtins.fetchTarball {
-        url = https://github.com/nix-community/emacs-overlay/archive/e9e6de910fe1a9c485b7a9c3ae321030bfb8cc36.tar.gz;
+        url =
+          "https://github.com/nix-community/emacs-overlay/archive/e9e6de910fe1a9c485b7a9c3ae321030bfb8cc36.tar.gz";
         sha256 = "1arqmdgkaak6m8gzcf71yqr4smk8abziy84rpb2dkq82023y5d44";
       }))
       (import ../overlays/00-nix-scripts.nix)
-    ];     
+    ];
   };
 
   home-manager = {
     # useUserPackages = true;
     useGlobalPkgs = true;
-    users.aqua0210 = {
-      imports = [ ./home.nix ];
-    };
+    users.aqua0210 = { imports = [ ./home.nix ]; };
   };
-  
-  
+
   # environment.systemPackages = with pkgs; [
   #   discount
   #   emacsGit
@@ -89,13 +83,13 @@ in {
   #   tree
   #   zsh
   # ];
-  
+
   # environment.shells = [ pkgs.zsh ];
 
   # environment.variables = {
   #   EDITOR = "vim";
   # };
-  
+
   # programs.nix-index.enable = true;
 
   # system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
