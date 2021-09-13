@@ -15,6 +15,10 @@ in {
   home = {
     packages = callPackage ./packages.nix { };
 
+    sessionVariables = {
+      ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
+    };
+
   };
 
   # home.file.".gnupg/gpg-agent.conf".text = ''
