@@ -33,6 +33,7 @@ in {
   programs = {
     # Let Home Manager install and manage itself.
     # home-manager.enable = true;
+    direnv.enable = true;
     bat.enable = true;
     broot.enable = true;
     gpg.enable = true;
