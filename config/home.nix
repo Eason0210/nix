@@ -79,7 +79,33 @@ in {
         size = 50000;
         save = 50000;
       };
-      shellAliases = import ./home/aliases.nix;
+
+      shellAliases = {
+        ls = "${pkgs.coreutils}/bin/ls --color=auto";
+        la = "${pkgs.coreutils}/bin/ls -a --color=auto";
+        ll = "${pkgs.coreutils}/bin/ls -l -a --color=auto";
+        
+        # Use whichever cabal is on the PATH.
+        cb = "cabal new-build";
+        cn = "cabal new-configure --enable-tests --enable-benchmarks";
+        cnp = "cabal new-configure --enable-tests --enable-benchmarks "
+          + "--enable-profiling --ghc-options=-fprof-auto";
+        
+        # u/uu/uuu/...
+        u = "cd ..";
+        uu = "cd ../..";
+        uuu = "cd ../../..";
+
+        # Git 
+        gb = "git branch";
+        gtl = "git tag -l";
+        ga = "git add";
+
+        # Proxt Setting
+        proxy = "export all_proxy=socks5://127.0.0.1:1080";
+        unproxy = "unset all_proxy";
+      };
+
       # defaultKeymap = "emacs";
       # initExtraBeforeCompInit = ''
       #   eval $(${pkgs.coreutils}/bin/dircolors -b ${./home/LS_COLORS})
