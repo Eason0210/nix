@@ -20,6 +20,9 @@ in {
         "$HOME/.nix-defexpr/channels"
       ];
     }];
+
+    maxJobs = 16;
+    buildCores = 4;
   };
 
   services = {
@@ -61,32 +64,64 @@ in {
     users.aqua0210 = { imports = [ ./home.nix ]; };
   };
 
-  # system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
-  # system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
-  # system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
-  # system.defaults.NSGlobalDomain.KeyRepeat = 1;
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = false;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
+  system = {
+    stateVersion = 4;
 
-  system.defaults.dock.autohide = true;
-  # system.defaults.dock.orientation = "right";
-  system.defaults.dock.showhidden = true;
+    defaults = {
+      NSGlobalDomain = {
+        # AppleKeyboardUIMode = 3;
+        # ApplePressAndHoldEnabled = false;
+        # InitialKeyRepeat = 10;
+        # KeyRepeat = 1;
+        # _HIHideMenuBar = true;
 
-  system.defaults.finder.AppleShowAllExtensions = true;
-  system.defaults.finder.QuitMenuItem = true;
-  system.defaults.finder.FXEnableExtensionChangeWarning = false;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSNavPanelExpandedStateForSaveMode = true;
+        NSNavPanelExpandedStateForSaveMode2 = true;
 
-  system.defaults.trackpad.Clicking = true;
-  system.defaults.trackpad.TrackpadThreeFingerDrag = true;
+        "com.apple.keyboard.fnState" = true;
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.sound.beep.volume" = "0.0";
+        "com.apple.sound.beep.feedback" = 0;
+      };
 
-  environment.darwinConfig = "/Users/aqua0210/src/nix/config/darwin.nix";
+      ".GlobalPreferences" = {
+        "com.apple.sound.beep.sound" = "/System/Library/Sounds/Funk.aiff";
+      };
 
-  system.stateVersion = 4;
-  nix.maxJobs = 16;
-  nix.buildCores = 4;
+      dock = {
+        autohide = true;
+        showhidden = true;
+        launchanim = false;
+        # orientation = "right";
+      };
+
+      finder = {
+        AppleShowAllExtensions = true;
+        QuitMenuItem = true;
+        FXEnableExtensionChangeWarning = false;
+      };
+
+      trackpad = {
+        Clicking = true;
+        TrackpadThreeFingerDrag = true;
+      };
+
+    };
+
+    # keyboard = {
+    #   enableKeyMapping = true;
+    #   remapCapsLockToControl = true;
+    # };
+  };
+
+  environment = {
+    darwinConfig = "/Users/aqua0210/src/nix/config/darwin.nix";
+
+  };
+
 }
