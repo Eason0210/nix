@@ -55,10 +55,17 @@ in {
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
+
       history = {
         path = ".local/share/zsh/.zsh_history";
         size = 50000;
         save = 50000;
+      };
+
+      oh-my-zsh = {
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [ "git" ];
       };
 
       shellAliases = {
