@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  callPackage = pkgs.callPackage;
-
-  # hammerspoon = callPackage /b/src/apps/hammerspoon.nix { };
+let callPackage = pkgs.callPackage;
 
 in {
   imports = [ <home-manager/nix-darwin> ];
@@ -64,34 +61,6 @@ in {
     users.aqua0210 = { imports = [ ./home.nix ]; };
   };
 
-  # environment.systemPackages = with pkgs; [
-  #   discount
-  #   emacsGit
-  #   fd
-  #   fontconfig # to make doom doctor work
-  #   git
-  #   ctags
-  #   # hammerspoon
-  #   htop
-  #   jq
-  #   nixfmt
-  #   ripgrep
-  #   # ruby_2_6
-  #   ruby
-  #   shadowenv
-  #   shellcheck
-  #   tree
-  #   zsh
-  # ];
-
-  # environment.shells = [ pkgs.zsh ];
-
-  # environment.variables = {
-  #   EDITOR = "vim";
-  # };
-
-  # programs.nix-index.enable = true;
-
   # system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   # system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = false;
   # system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
@@ -107,7 +76,6 @@ in {
   system.defaults.dock.autohide = true;
   # system.defaults.dock.orientation = "right";
   system.defaults.dock.showhidden = true;
-  # system.defaults.dock.mru-spaces = false;
 
   system.defaults.finder.AppleShowAllExtensions = true;
   system.defaults.finder.QuitMenuItem = true;
@@ -116,12 +84,9 @@ in {
   system.defaults.trackpad.Clicking = true;
   system.defaults.trackpad.TrackpadThreeFingerDrag = true;
 
-  # system.keyboard.enableKeyMapping = true;
-  # system.keyboard.remapCapsLockToControl = true;
-
   environment.darwinConfig = "/Users/aqua0210/src/nix/config/darwin.nix";
 
   system.stateVersion = 4;
-  nix.maxJobs = 8;
+  nix.maxJobs = 16;
   nix.buildCores = 4;
 }
