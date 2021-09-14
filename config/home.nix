@@ -1,12 +1,10 @@
 { config, pkgs, lib, ... }:
 
-let
-  home = builtins.getEnv "HOME";
-  callPackage = pkgs.callPackage;
+let home = builtins.getEnv "HOME";
 
 in {
   home = {
-    packages = callPackage ./packages.nix { };
+    packages = pkgs.callPackage ./packages.nix { };
 
     sessionVariables = {
       ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
@@ -14,21 +12,6 @@ in {
     };
 
   };
-
-  # home.file.".gnupg/gpg-agent.conf".text = ''
-  # '' + (if pkgs.stdenv.isDarwin then ''
-  #   pinentry-program = ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
-  # '' else
-  #   "");
-
-  # home.file.".config/karabiner/karabiner.json".source = ./home/karabiner.json;
-
-  # home.file.".iterm2_shell_integration.zsh".source =
-  #   ./home/.iterm2_shell_integration.zsh;
-
-  # home.file.".config/nvim/backup/.keep".text = "";
-
-  # home.file.".hammerspoon".source = /b/etc/hammerspoon;
 
   programs = {
     # Let Home Manager install and manage itself.
@@ -65,9 +48,7 @@ in {
 
     ssh = {
       enable = true;
-      # extraConfig = ''
-      #   Include ~/.spin/ssh/include
-      # '';
+
     };
 
     zsh = {
@@ -84,13 +65,13 @@ in {
         ls = "${pkgs.coreutils}/bin/ls --color=auto";
         la = "${pkgs.coreutils}/bin/ls -a --color=auto";
         ll = "${pkgs.coreutils}/bin/ls -l -a --color=auto";
-        
+
         # Use whichever cabal is on the PATH.
         cb = "cabal new-build";
         cn = "cabal new-configure --enable-tests --enable-benchmarks";
         cnp = "cabal new-configure --enable-tests --enable-benchmarks "
           + "--enable-profiling --ghc-options=-fprof-auto";
-        
+
         # u/uu/uuu/...
         u = "cd ..";
         uu = "cd ../..";
@@ -107,11 +88,6 @@ in {
       };
 
       # defaultKeymap = "emacs";
-      # initExtraBeforeCompInit = ''
-      #   eval $(${pkgs.coreutils}/bin/dircolors -b ${./home/LS_COLORS})
-      #   ${builtins.readFile ./home/pre-compinit.zsh}
-      # '';
-      # initExtra = builtins.readFile ./home/post-compinit.zsh;
 
       plugins = [
         {
@@ -143,7 +119,7 @@ in {
       ];
 
       sessionVariables = rec {
-        # NVIM_TUI_ENABLE_TRUE_COLOR = "1";
+        NVIM_TUI_ENABLE_TRUE_COLOR = "1";
 
         HOME_MANAGER_CONFIG = /Users/aqua0210/src/nix/config/home.nix;
 
@@ -158,11 +134,6 @@ in {
 
         # PATH = "$HOME/bin:$PATH";
       };
-      # envExtra
-      # profileExtra
-      # loginExtra
-      # logoutExtra
-      # localVariables
     };
 
     neovim = {
