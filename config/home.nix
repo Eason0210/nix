@@ -80,7 +80,7 @@ in {
         save = 50000;
       };
       shellAliases = import ./home/aliases.nix;
-      defaultKeymap = "emacs";
+      # defaultKeymap = "emacs";
       # initExtraBeforeCompInit = ''
       #   eval $(${pkgs.coreutils}/bin/dircolors -b ${./home/LS_COLORS})
       #   ${builtins.readFile ./home/pre-compinit.zsh}
@@ -88,6 +88,14 @@ in {
       # initExtra = builtins.readFile ./home/post-compinit.zsh;
 
       plugins = [
+        {
+          name = "iterm2_shell_integration";
+          src = pkgs.fetchurl {
+            url = "https://iterm2.com/shell_integration/zsh";
+            sha256 = "1h38yggxfm8pyq3815mjd2rkb411v9g1sa0li884y0bjfaxgbnd4";
+            # date = 2021-05-02T18:15:26-0700;
+          };
+        }
         {
           name = "zsh-autosuggestions";
           src = pkgs.fetchFromGitHub {
