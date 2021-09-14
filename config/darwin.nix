@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-let callPackage = pkgs.callPackage;
+let home = builtins.getEnv "HOME";
 
 in {
   imports = [ <home-manager/nix-darwin> ];
@@ -120,7 +120,7 @@ in {
   };
 
   environment = {
-    darwinConfig = "/Users/aqua0210/src/nix/config/darwin.nix";
+    darwinConfig = "${home}/src/nix/config/darwin.nix";
 
   };
 
