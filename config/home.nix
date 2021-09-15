@@ -89,6 +89,9 @@ in {
         gtl = "git tag -l";
         ga = "git add";
 
+        # emacsClient
+        ec = ''emacsclient -t -a " "'';
+        
         # Proxt Setting
         proxy = "export all_proxy=socks5://127.0.0.1:1080";
         unproxy = "unset all_proxy";
