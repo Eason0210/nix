@@ -113,8 +113,9 @@ in {
           src = pkgs.fetchFromGitHub {
             owner = "zsh-users";
             repo = "zsh-autosuggestions";
-            rev = "v0.6.3";
-            sha256 = "1h8h2mz9wpjpymgl2p7pc146c1jgb3dggpvzwm9ln3in336wl95c";
+            rev = "v0.7.0";
+            sha256 = "1g3pij5qn2j7v7jjac2a63lxd97mcsgw6xq6k5p7835q9fjiid98";
+            # date = 2021-09-16 19:25:19            
           };
         }
         {
@@ -122,8 +123,9 @@ in {
           src = pkgs.fetchFromGitHub {
             owner = "zsh-users";
             repo = "zsh-syntax-highlighting";
-            rev = "be3882aeb054d01f6667facc31522e82f00b5e94";
-            sha256 = "0w8x5ilpwx90s2s2y56vbzq92ircmrf0l5x8hz4g1nx3qzawv6af";
+            rev = "6e0e950154a4c6983d9e077ed052298ad9126144";
+            sha256 = "09bkg1a7qs6kvnq17jnw5cbcjhz9sk259mv0d5mklqaifd0hms4v";
+            # date = 2021-09-16 19:25:19
           };
         }
       ];
