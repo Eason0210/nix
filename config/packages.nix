@@ -15,7 +15,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   # cachix
   coreutils
   direnv
-  emacsGcc
+  emacsGit
   fd
   fzf
   gawk
