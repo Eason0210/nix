@@ -13,12 +13,16 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   aspell
   aspellDicts.en
   # cachix
+  clang_12
+  clang-tools  
+  cppcheck
   coreutils
   direnv
   emacsGit
   fd
   fzf
   gawk
+  gdb
   gnugrep
   gnumake
   # gnuplot
