@@ -8,6 +8,7 @@ in {
 
     sessionVariables = {
       ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
+      GRAPHVIZ_DOT = "${pkgs.graphviz}/bin/dot";
 
     };
 
@@ -91,7 +92,7 @@ in {
 
         # emacsClient
         ec = ''emacsclient -t -a " "'';
-        
+
         # Proxt Setting
         proxy = "export all_proxy=socks5://127.0.0.1:1080";
         unproxy = "unset all_proxy";

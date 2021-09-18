@@ -17,7 +17,6 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   clang-tools  
   cppcheck
   coreutils
-  direnv
   emacsGit
   fd
   fzf
@@ -27,20 +26,14 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   gnumake
   # gnuplot
   gnutar
-  # graphviz-nox
+  graphviz-nox
   jq
   less
   m-cli
   more
-  # # my-scripts
-  # nix-index
-  # nix-info
-  # nix-prefetch-scripts
   nix-scripts
-  # nix-zsh-completions
   nixpkgs-fmt
   nixfmt
-  # openssh
   pandoc
   pstree
   python27
@@ -48,7 +41,6 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   ripgrep
   ruby
   rust-analyzer
-  # sbcl
   shfmt
   sqlite
   tree
