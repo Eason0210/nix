@@ -47,6 +47,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   python3
   ripgrep
   ruby
+  rust-analyzer
   # sbcl
   shfmt
   sqlite
