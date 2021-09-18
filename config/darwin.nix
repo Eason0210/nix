@@ -34,8 +34,6 @@ in {
     shell = pkgs.zsh;
   };
 
-  services.emacs.package = pkgs.emacsUnstable;
-
   nixpkgs = {
     config = {
       allowUnfree = true;
