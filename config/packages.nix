@@ -41,6 +41,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   ripgrep
   ruby
   rust-analyzer
+  rustup
   shfmt
   sqlite
   tree
