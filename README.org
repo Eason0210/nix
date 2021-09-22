@@ -63,3 +63,6 @@ Profit
 refer to [[https://github.com/nix-community/emacs-overlay/issues/170][this issue]].
 
   
+* Uninstall Nix on Mac
+  Refer to [[https://gist.github.com/Eason0210/229bc4b3c36d0378c70a7328ec7bbe52][nix-on-macos-catalina.md]]
+  
