@@ -1,0 +1,32 @@
+#+title: Personal Nix Configuration
+
+This is my personal Nix configuration used on MacOS.
+* Prerequisites
+  1. install nix
+  2. install nix-darwin
+
+=note:=
+you don't need to install home-manger, nix-darwin will install it instead.
+* Setup (Darwin)
+  1. Clone this to ~$HOME/src/nix~
+#+begin_src 
+ cd $HOME/src
+ git clone https://github.com/Eason0210/nix.git 
+#+end_src
+  2. Change all the username(aqua0210 is my username) in ~darwin.nix~ and ~home.nix~
+
+  3. remove apps you don't need in ~packages.nix~
+
+  4. check all the config is good for you and run this command in terminal.
+#+begin_src 
+darwin-rebuild switch  
+#+end_src
+* Other useful commands
+#+begin_src bash
+  darwin-rebuild --list-generations # list all generations
+  darwin-rebuild --rollback # rollback to previous generation
+  nix-collect-garbage -d    # remove all other generations except current one
+#+end_src
+
+
+  
