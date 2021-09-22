@@ -3,24 +3,31 @@
 This is my personal Nix configuration used on MacOS.
 
 * Prerequisites
-  1. install nix
-  2. install nix-darwin
+  1. install [[https://nixos.org/manual/nix/stable/#sect-macos-installation][nix]]
+  2. install [[https://github.com/LnL7/nix-darwin][nix-darwin]]
+  3. and channel for home-manager
+#+begin_src bash
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+
+nix-channel --update  
+#+end_src
+     
 
 =note:=
 you don't need to install home-manger, nix-darwin will install it instead.
 
 * Setup (Darwin)
-1. Clone this to ~$HOME/src/nix~
+- Clone this to ~$HOME/src/nix~
 
 #+begin_src  bash
 cd $HOME/src && git clone https://github.com/Eason0210/nix.git 
 #+end_src
 
-2. Change all the username(aqua0210 is my username) in ~darwin.nix~ and ~home.nix~
+- Change all the username(aqua0210 is my username) in ~darwin.nix~ and ~home.nix~
 
-3. Remove apps you don't need in ~packages.nix~
+- Remove apps you don't need in ~packages.nix~
 
-4. Check all the config is good for you and run this command in terminal.
+- Check all the config is good for you and run this command in terminal.
 
 #+begin_src bash
 darwin-rebuild switch  
