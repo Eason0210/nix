@@ -40,5 +40,26 @@ darwin-rebuild switch
   nix-collect-garbage -d    # remove all other generations except current one
 #+end_src
 
+* Install Emacs
+  Please refer to [[https://github.com/nix-community/emacs-overlay][nix-community/emacs-verlay]]
+
+- EmacsGit install the master branch of Emacs, recently is Emacs 28.0.50
+- Emacs install Emacs latest realease, Emacs 27.2
+- EmacsGcc  Install master branch with options ~--with-native-compilation~ enabled
+
+** Pin the version of EmacsGit and EmacsGcc
+You need to specify a specific Git revision, along with its hash, in order to avoid re-downloading new versions of the overlay constantly.
+
+Concretely, that means:
+
+1. Change the master string in the url field of builtins.fetchTarball to a specific commit hash.
+2. Add a sha256 field to builtins.fetchTarball set to 0000000000000000000000000000000000000000000000000000
+3. Try to build (~darwin-rebuild switch~)
+4. It will complain about the hash being incorrect (expected zeros, actually the real hash)
+5. Replace the zeros with the real hash
+...
+Profit
+
+refer to [[https://github.com/nix-community/emacs-overlay/issues/170][this issue]].
 
   
