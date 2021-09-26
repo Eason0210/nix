@@ -30,6 +30,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   less
   m-cli
   more
+  mpv
   nix-scripts
   nixpkgs-fmt
   nixfmt
