@@ -2,12 +2,12 @@
 
 let home = builtins.getEnv "HOME";
 
-in {
+in
+{
   home = {
     packages = pkgs.callPackage ./packages.nix { };
 
     sessionVariables = {
-      ASPELL_CONF = "conf ${config.xdg.configHome}/aspell/config;";
       GRAPHVIZ_DOT = "${pkgs.graphviz}/bin/dot";
 
     };
@@ -169,12 +169,6 @@ in {
   xdg = {
     enable = true;
 
-    configFile."aspell/config".text = ''
-      local-data-dir ${pkgs.aspell}/lib/aspell
-      data-dir ${pkgs.aspellDicts.en}/lib/aspell
-      personal ${config.xdg.configHome}/aspell/en_US.personal
-      repl ${config.xdg.configHome}/aspell/en_US.repl
-    '';
   };
 
 }
