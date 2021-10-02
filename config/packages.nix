@@ -15,6 +15,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   # cachix
   clang-tools  
   cppcheck
+  coq
   coreutils
   emacsGit
   fd
@@ -26,6 +27,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   # gnuplot
   gnutar
   graphviz-nox
+  j
   jq
   less
   m-cli
