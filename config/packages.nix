@@ -36,6 +36,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   nix-scripts
   nixpkgs-fmt
   nixfmt
+  nodejs
   pandoc
   pstree
   python27
