@@ -21,6 +21,7 @@ in
     bat.enable = true;
     broot.enable = true;
     gpg.enable = true;
+    tmux.enable = true;
 
     git = {
       enable = true;
