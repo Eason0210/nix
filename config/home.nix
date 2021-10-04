@@ -22,13 +22,6 @@ in
     broot.enable = true;
     gpg.enable = true;
 
-    bash = {
-      enable = true;
-      bashrcExtra = lib.mkBefore ''
-        source /etc/bashrc
-      '';
-    };
-
     git = {
       enable = true;
       userName = "Eason Huang";
