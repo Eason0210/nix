@@ -46,6 +46,18 @@ in
 
     };
 
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultOptions = [
+        "--height 40%"
+        "--layout=reverse"
+        "--info=inline"
+        "--border"
+        "--exact"
+      ];
+    };
+
     zsh = rec {
       enable = true;
       enableCompletion = true;
