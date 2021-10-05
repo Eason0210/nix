@@ -46,15 +46,36 @@ in
 
     };
 
-    zsh = {
+    zsh = rec {
       enable = true;
       enableCompletion = true;
       enableAutosuggestions = true;
+      dotDir = ".config/zsh";
 
       history = {
-        path = ".local/share/zsh/.zsh_history";
+        path = "${dotDir}/history";
         size = 50000;
-        save = 50000;
+        save = 500000;
+        ignoreDups = true;
+        share = true;
+        extended = true;
+      };
+
+      sessionVariables = rec {
+        NVIM_TUI_ENABLE_TRUE_COLOR = "1";
+
+        HOME_MANAGER_CONFIG = /Users/aqua0210/src/nix/config/home.nix;
+
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=3";
+        DEV_ALLOW_ITERM2_INTEGRATION = "1";
+
+        EDITOR = "vim";
+        VISUAL = EDITOR;
+        GIT_EDITOR = EDITOR;
+
+        GOPATH = "$HOME";
+
+        # PATH = "$HOME/bin:$PATH";
       };
 
       oh-my-zsh = {
@@ -124,23 +145,6 @@ in
           };
         }
       ];
-
-      sessionVariables = rec {
-        NVIM_TUI_ENABLE_TRUE_COLOR = "1";
-
-        HOME_MANAGER_CONFIG = /Users/aqua0210/src/nix/config/home.nix;
-
-        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=3";
-        DEV_ALLOW_ITERM2_INTEGRATION = "1";
-
-        EDITOR = "vim";
-        VISUAL = EDITOR;
-        GIT_EDITOR = EDITOR;
-
-        GOPATH = "$HOME";
-
-        # PATH = "$HOME/bin:$PATH";
-      };
     };
 
     neovim = {
