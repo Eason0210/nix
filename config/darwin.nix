@@ -2,7 +2,8 @@
 
 let home = builtins.getEnv "HOME";
 
-in {
+in
+{
   imports = [ <home-manager/nix-darwin> ];
 
   nix = {
@@ -45,8 +46,8 @@ in {
     overlays = [
       (import (builtins.fetchTarball {
         url =
-          "https://github.com/nix-community/emacs-overlay/archive/6b81c0312373b808637045aa16f87f866beccd40.tar.gz";
-        sha256 = "08ss5ppp8zyln80qkvzk5fk7jr1pj8bk6g8mlnz012rwc3yp1b8m";
+          "https://github.com/nix-community/emacs-overlay/archive/15348fba49e60ded210db2c019d02145c94ee152.tar.gz";
+        sha256 = "1hzsmpi2n1kk6ny289p9ajwklx16hm80shcipv5wc6rxy09m8qph";
       }))
       (import ../overlays/00-nix-scripts.nix)
     ];
