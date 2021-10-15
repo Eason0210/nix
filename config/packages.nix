@@ -37,6 +37,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   nixpkgs-fmt
   nixfmt
   nodejs
+  nodePackages.eslint
   pandoc
   pstree
   python27
