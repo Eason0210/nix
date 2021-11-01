@@ -24,7 +24,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   gdb
   gnugrep
   gnumake
-  # gnuplot
+  gnuplot
   gnutar
   graphviz-nox
   j
