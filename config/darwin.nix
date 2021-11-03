@@ -8,8 +8,7 @@ in
 
   nix = {
     package = pkgs.nix;
-    useDaemon = false;
-
+    useDaemon = true;
     # https://github.com/LnL7/nix-darwin/issues/145
     nixPath = pkgs.lib.mkForce [{
       darwin-config = builtins.concatStringsSep ":" [
@@ -23,7 +22,7 @@ in
   };
 
   services = {
-    nix-daemon.enable = false;
+    nix-daemon.enable = true;
     activate-system.enable = true;
   };
 
