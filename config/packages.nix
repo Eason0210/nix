@@ -19,7 +19,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   coreutils
   emacsGit
   fd
-  fzf
+  # fzf
   gawk
   gdb
   gnugrep
