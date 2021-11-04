@@ -10,7 +10,7 @@ in
     package = pkgs.nix;
     extraOptions = ''
       experimental-features = nix-command flakes
-	    '';
+    '';
 
     useDaemon = true;
     # https://github.com/LnL7/nix-darwin/issues/145
@@ -21,8 +21,10 @@ in
       ];
     }];
 
+    # You should generally set this to the total number of logical cores in your system.
+    # $ sysctl -n hw.ncpu
     maxJobs = 16;
-    buildCores = 4;
+    buildCores = 16;
   };
 
   services = {
