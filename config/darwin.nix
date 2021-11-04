@@ -8,6 +8,10 @@ in
 
   nix = {
     package = pkgs.nix;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+	    '';
+
     useDaemon = true;
     # https://github.com/LnL7/nix-darwin/issues/145
     nixPath = pkgs.lib.mkForce [{
