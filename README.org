@@ -3,15 +3,8 @@
 This is my personal Nix configuration used on MacOS.
 
 * Prerequisites
-  1. install [[https://nixos.org/manual/nix/stable/#sect-macos-installation][nix]]
+  1. install [[https://nixos.org/manual/nix/stable/#sect-macos-installation][nix]] version 2.4 or later
   2. install [[https://github.com/LnL7/nix-darwin][nix-darwin]]
-  3. and channel for home-manager
-#+begin_src bash
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-
-nix-channel --update  
-#+end_src
-     
 
 =note:=
 you don't need to install home-manger, nix-darwin will install it instead.
@@ -30,7 +23,9 @@ cd $HOME/src && git clone https://github.com/Eason0210/nix.git
 - Check all the config is good for you and run this command in terminal.
 
 #+begin_src bash
-darwin-rebuild switch  
+nix build ~/src/nix\#darwinConfigurations.macbook.system
+# when build succeed, run:
+darwin-rebuild switch --flake ~/src/nix
 #+end_src
 
 * Other useful commands
@@ -62,7 +57,12 @@ Profit
 
 refer to [[https://github.com/nix-community/emacs-overlay/issues/170][this issue]].
 
-  
 * Uninstall Nix on Mac
-  Refer to [[https://gist.github.com/Eason0210/229bc4b3c36d0378c70a7328ec7bbe52][nix-on-macos-catalina.md]]
-  
+  - [[https://nixos.org/manual/nix/stable/installation/installing-binary.html][Nix Multi User Installation]] (Nix 2.4 or later)
+  - Refer to [[https://gist.github.com/Eason0210/229bc4b3c36d0378c70a7328ec7bbe52][nix-on-macos-catalina.md]] (before Nix 2.4)
+
+* Reference
+1. https://github.com/LnL7/nix-darwin
+2. [[https://github.com/srid/nixos-config][srid/nixos-config]]
+3. [[https://github.com/kclejeune/system][kclejeune/system]]
+4. [[https://github.com/jwiegley/nix-config][jwiegley/nix-config]]
