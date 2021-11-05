@@ -33,7 +33,7 @@
     in
     {
       darwinConfigurations = {
-        macbook = mkDarwinConfig {
+        MacBook = mkDarwinConfig {
           extraModules = [ ];
         };
       };
