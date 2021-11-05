@@ -4,7 +4,7 @@ let home = builtins.getEnv "HOME";
 
 in
 {
-  imports = [ <home-manager/nix-darwin> ];
+  # imports = [ <home-manager/nix-darwin> ];
 
   nix = {
     package = pkgs.nix;
