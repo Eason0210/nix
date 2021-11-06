@@ -23,11 +23,12 @@ cd $HOME/src && git clone https://github.com/Eason0210/nix.git
 - Check all the config is good for you and run this command in terminal.
 
 #+begin_src bash
-nix build ~/src/nix\#darwinConfigurations.macbook.system
+nix build ~/src/nix\#darwinConfigurations.MacBook.system
 # when build succeed, run:
 darwin-rebuild switch --flake ~/src/nix
 #+end_src
 
+~hint:~ MacBook is my ~hostname~
 * Other useful commands
 #+begin_src bash
   darwin-rebuild --list-generations # list all generations
