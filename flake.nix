@@ -2,6 +2,10 @@
   description = "Nix system configurations";
 
   inputs = {
+    # To update nixpkgs, pick the nixos-unstable rev from
+    # https://status.nixos.org/
+    #
+    # This ensures that we always use the official nix cache.
     nixpkgs.url = "github:nixos/nixpkgs/0a9e90389a5ec16788322974587ec154ea810270";
     darwin = {
       url = "github:lnl7/nix-darwin/master";
