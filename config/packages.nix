@@ -28,6 +28,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in
   gnutar
   graphviz-nox
   hugo
+  imagemagick
   j
   jq
   less
