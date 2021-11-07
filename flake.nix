@@ -33,6 +33,7 @@
         darwinSystem {
           inherit system;
           modules = baseModules ++ extraModules;
+          specialArgs = { inherit inputs nixpkgs; };
         };
     in
     {
