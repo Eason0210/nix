@@ -63,7 +63,7 @@ refer to [[https://github.com/nix-community/emacs-overlay/issues/170][this issue
   - Refer to [[https://gist.github.com/Eason0210/229bc4b3c36d0378c70a7328ec7bbe52][nix-on-macos-catalina.md]] (before Nix 2.4)
 
 * Reference
-1. https://github.com/LnL7/nix-darwin
+1. [[https://github.com/LnL7/nix-darwin][LnL7/nix-darwin]]
 2. [[https://github.com/srid/nixos-config][srid/nixos-config]]
 3. [[https://github.com/kclejeune/system][kclejeune/system]]
 4. [[https://github.com/jwiegley/nix-config][jwiegley/nix-config]]
