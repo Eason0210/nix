@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let home = builtins.getEnv "HOME";
 
@@ -8,6 +8,7 @@ in
 
   nix = {
     package = pkgs.nixUnstable;
+    registry.nixpkgs.flake = inputs.nixpkgs;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
