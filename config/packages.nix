@@ -27,6 +27,7 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in
   gnuplot
   gnutar
   graphviz-nox
+  hugo
   j
   jq
   less
