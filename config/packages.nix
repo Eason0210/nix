@@ -1,6 +1,8 @@
 { pkgs }:
 
-with pkgs; let exe = haskell.lib.justStaticExecutables; in [
+with pkgs; let exe = haskell.lib.justStaticExecutables; in
+[
+  # Haskell tools
   (exe haskellPackages.cabal-install)
   (exe haskellPackages.hpack)
   (exe haskellPackages.haskell-language-server)
@@ -9,17 +11,15 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   (exe haskellPackages.ormolu)
   (exe haskellPackages.hie-bios)
   (exe haskellPackages.implicit-hie)
-  ghc  
+  ghc
   aspell
   aspellDicts.en
-  # cachix
-  clang-tools  
+  clang-tools
   cppcheck
   coq
   coreutils
   emacsGit
   fd
-  # fzf
   gawk
   gdb
   gnugrep
@@ -49,17 +49,9 @@ with pkgs; let exe = haskell.lib.justStaticExecutables; in [
   shfmt
   sqlite
   tree
-  # unixtools.ifconfig
-  # unixtools.netstat
-  # unixtools.ping
-  # unixtools.route
-  # unixtools.top
   unrar
   unzip
-  # watch
-  # watchman
   wget
   xz
-  # yq
   zip
 ]
